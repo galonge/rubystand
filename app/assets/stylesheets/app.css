@@ -1,11 +1,28 @@
+body {
+    font-size: 16px;
+}
+
 #header {
     background: #222;
     padding-top: 20px;
     vertical-align: middle;
     color: white;
     border-bottom: #11639d solid thick;
+    margin-bottom: 20px;
 }
 
-#header h2{
+#header h2 {
     color: white;
+}
+
+#albums {
+    
+}
+
+#albums h4{
+    border-bottom: #222, solid, thin
+}
+
+#albums li {
+    padding-left: 10px;
 }

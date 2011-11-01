@@ -1,1 +1,8 @@
-Hello World
+.container
+  .row
+    .four.columns
+      #albums
+        %h3 Albums
+        %ul
+          =render(:partial => 'albums', :collection => @albums)
+    .eight.columns

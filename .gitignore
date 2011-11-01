@@ -65,3 +65,5 @@ tmp/*
 
 #RubyMine
 /.idea/*
+
+/data/*
