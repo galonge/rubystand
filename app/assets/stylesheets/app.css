@@ -1,0 +1,11 @@
+#header {
+    background: #222;
+    padding-top: 20px;
+    vertical-align: middle;
+    color: white;
+    border-bottom: #11639d solid thick;
+}
+
+#header h2{
+    color: white;
+}
