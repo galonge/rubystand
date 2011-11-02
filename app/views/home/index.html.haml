@@ -1,16 +1,8 @@
 :javascript
   $(function() {
-      $('img.image1').data('ad-desc', 'Whoa! This description is set through elm.data("ad-desc") instead of using the longdesc attribute.<br>And it contains <strong>H</strong>ow <strong>T</strong>o <strong>M</strong>eet <strong>L</strong>adies... <em>What?</em> That aint what HTML stands for? Man...');
-      $('img.image1').data('ad-title', 'Title through $.data');
-      $('img.image4').data('ad-desc', 'This image is wider than the wrapper, so it has been scaled down');
-      $('img.image5').data('ad-desc', 'This image is higher than the wrapper, so it has been scaled down');
-      var galleries = $('.ad-gallery').adGallery();
-      $('#switch-effect').change(
-        function() {
-          galleries[0].settings.effect = $(this).val();
-          return false;
-        }
-      );
+      var galleries = $('.ad-gallery').adGallery({
+        loader_image: 'loader.gif',
+        });
       $('#toggle-slideshow').click(
         function() {
           galleries[0].slideshow.toggle();
@@ -29,23 +21,26 @@
       );
     });
 
-
 .container
   .row
     .three.columns
       #albums
         %h3 Albums
         %ul
-          =render(:partial => 'albums', :collection => @albums)
+          =render(:partial => 'album', :collection => @albums.values)
     .nine.columns
-      #gallery.ad-gallery
-        .ad-image-wrapper
-        .ad-controls
-        .ad-nav
-          .ad-thumbs
-            %ul.ad-thumb-list
-              -@albums[1].images.each do |image|
-                %li
-                  %a{:href => "assets/#{image.path}"}
-                    =image_tag image.path, :width => '100px'
+      -if @album
+        #gallery.ad-gallery
+          .ad-image-wrapper
+          .ad-controls
+          .ad-nav
+            .ad-thumbs
+              %ul.ad-thumb-list
+                -counter = 0
+                -@album.images.each do |image|
+                  %li
+                    %a{:href => "assets/#{image.path}"}
+                      =image_tag image.path, :width => '100px', :title => image.title, :alt => image.desc, :class => "image#{counter+=1}"
+      -else
+        Please select an album on the left menu
 

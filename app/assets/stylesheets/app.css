@@ -26,9 +26,3 @@ body {
 #albums li {
     padding-left: 10px;
 }
-
-#images{
-    min-height: 800px;
-    border-left: #222 solid thin;
-    text-align: center;
-}
