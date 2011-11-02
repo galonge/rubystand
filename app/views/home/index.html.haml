@@ -1,8 +1,10 @@
 .container
   .row
-    .four.columns
+    .three.columns
       #albums
         %h3 Albums
         %ul
           =render(:partial => 'albums', :collection => @albums)
-    .eight.columns
+    .nine.columns
+      #images
+        =image_tag @albums[0].images[0].path
