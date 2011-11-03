@@ -22,7 +22,7 @@ class Album
       self.metadata = YAML::load(File.open(metadata_path))
     end 
 
-    self.images = Pathname.glob("#{@@datadir}/#{self.path}/*.jpg").collect { |path| Image.new("#{album_path}/#{File.basename(path)}") }
+    self.images = Pathname.glob("#{@@datadir}/#{self.path}/*.jpg").collect { |path| Image.new("#{album_path}/#{File.basename(path)}", (self.metadata['photos'] rescue nil)) }
 
     self.title = metadata['title'] rescue File.basename("#{@@datadir}/#{self.path}")
     self.year = metadata['year'] rescue ""
