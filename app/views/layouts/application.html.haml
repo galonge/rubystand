@@ -22,6 +22,8 @@
               = link_to (Rubystand::Application.config.rubystand['title'] || 'RubyStand'), root_path
             %p
               =Rubystand::Application.config.rubystand['subtitle'] || 'Wonderful tiny and smart gallery'
+              -if Rubystand::Application.config.rubystand['contact']
+                =mail_to Rubystand::Application.config.rubystand['contact'], image_tag('envelope.png', :class => 'envelope') 
           .six.columns
             #copyright
               %p

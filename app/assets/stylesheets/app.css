@@ -16,10 +16,10 @@ body {
 }
 
 #albums {
-    
+
 }
 
-#albums h4{
+#albums h4 {
     border-bottom: #222, solid, thin
 }
 
@@ -32,4 +32,12 @@ body {
     float: right;
     vertical-align: bottom;
     text-align: right;
+}
+
+.envelope {
+    vertical-align: -20%;
+    padding: 1px;
+    border: 1px solid #021a40;
+    background-color: white;
+    width: 20px;
 }
