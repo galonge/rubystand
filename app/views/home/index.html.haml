@@ -1,7 +1,6 @@
 :javascript
   $(function() {
       var galleries = $('.ad-gallery').adGallery({
-        loader_image: 'loader.gif',
         });
       $('#toggle-slideshow').click(
         function() {
@@ -31,7 +30,6 @@
     .nine.columns
       -if @album
         #gallery.ad-gallery
-          .ad-image-wrapper
           .ad-controls
           .ad-nav
             .ad-thumbs
@@ -41,6 +39,8 @@
                   %li
                     %a{:href => "assets/#{image.path}"}
                       =image_tag image.path, :width => '100px', :title => image.title, :alt => image.desc, :class => "image#{counter+=1}"
+          .ad-image-wrapper
+
       -else
         Please select an album on the left menu
 

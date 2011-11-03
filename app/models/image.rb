@@ -6,7 +6,6 @@ class Image
 
   def initialize(path)
     self.path = path
-    self.title = "My title"
   end
 
 end
