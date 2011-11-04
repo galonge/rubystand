@@ -37,8 +37,8 @@
                 -counter = 0
                 -@album.images.each do |image|
                   %li
-                    %a{:href => "assets/#{image.path}"}
-                      =image_tag image.path, :width => '100px', :title => image.title, :alt => image.desc, :class => "image#{counter+=1}"
+                    %a{:href => "data/#{image.path}"}
+                      %img{:src => "data/#{image.thumb_path}", :width => '100px', :title => image.title, :alt => image.desc, :class => "image#{counter+=1}"}
           .ad-image-wrapper
 
       -else

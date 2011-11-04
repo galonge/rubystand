@@ -1,7 +1,7 @@
 class Album
 
-  @@datadir = 'data'
-  @@metafile = 'album.yaml'
+  @@datadir = 'public/data'
+  @@metafile = 'album.yml'
   attr_accessor :path
   attr_accessor :metadata_path
   attr_accessor :metadata
