@@ -42,11 +42,10 @@
           .ad-nav
             .ad-thumbs
               %ul.ad-thumb-list
-                -counter = 0
                 -@album.images.each do |image|
                   %li
                     %a{:href => "data/#{image.path}"}
-                      %img{:src => "data/#{image.thumb_path}", :width => '100px', :title => image.title, :alt => image.desc, :class => "image#{counter+=1}"}
+                      %img{:src => "data/#{image.thumb_path}", :width => '100px', :title => image.title, :class => image.name}
 
 
       -else

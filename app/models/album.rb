@@ -19,13 +19,17 @@ class Album
     albums_by_year = Hash.new { |hash, key| hash[key] = Array.new }
     Album.all.values.each do |album|
       if album.year.blank?
-        albums_by_year[:undefined] << album
+        albums_by_year["unknown"] << album
       else
         albums_by_year[album.year] << album
       end
     end
 
-    albums_by_year
+    albums_by_year.each_value do |array|
+      array.sort_by!{|album| album.title}
+    end
+
+    Hash[albums_by_year.sort_by { |year, albums| year.to_s }]
   end
 
   def self.find(name)
