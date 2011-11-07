@@ -10,8 +10,8 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "Untitled"
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    'foundation', 'ie', 'jquery.ad-gallery', 'app'
+    = javascript_include_tag 'app', 'foundation', 'jquery.ad-gallery'
     = csrf_meta_tags
   %body
     #header
@@ -29,7 +29,7 @@
               %p
                 &copy;
                 =link_to 'RubyStand', 'http://github.com/zepplock/rubystand', :target => :blank
-                gallery (1.0.0)
+                gallery (1.1.0)
                 %br
                 by
                 =link_to 'SlashZero LLC', 'http://slashzero.us', :target => :blank

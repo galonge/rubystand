@@ -14,11 +14,28 @@ class Album
     Hash[albums]
   end
 
+  def self.all_by_year
+    albums_by_year = Hash.new { |hash, key| hash[key] = Array.new }
+    Album.all.values.each do |album|
+      if album.year.blank?
+        albums_by_year[:undefined] << album
+      else
+        albums_by_year[album.year] << album
+      end
+    end
+
+    albums_by_year
+  end
+
+  def self.find(name)
+    Album.all[name]
+  end
+
   def initialize(album_path)
     self.path = album_path
 
     self.metadata_path = "#{@@datadir}/#{self.path}/#{@@metafile}"
-    if File.exist?(metadata_path)
+    if File.exist?(self.metadata_path)
       self.metadata = YAML::load(File.open(metadata_path))
     end 
 

@@ -1,15 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    @albums = Album.all
-
-    selection = params[:album]
-    if selection.blank?
-      @album = nil
-    else
-      @album = @albums[selection]
-    end
-
+    @albums = Album.all_by_year
+    @album = Album.find(params[:album])
   end
 
 end
