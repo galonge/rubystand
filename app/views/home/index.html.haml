@@ -31,7 +31,13 @@
             =render(:partial => 'album', :collection => @albums[year])
     .nine.columns
       -if @album
+        -if @album.description
+          .alert-box=@album.description
+          - content_for :title do
+            =@album.description
+            | RubyStand
         #gallery.ad-gallery
+          .ad-image-wrapper
           .ad-controls
           .ad-nav
             .ad-thumbs
@@ -41,7 +47,7 @@
                   %li
                     %a{:href => "data/#{image.path}"}
                       %img{:src => "data/#{image.thumb_path}", :width => '100px', :title => image.title, :alt => image.desc, :class => "image#{counter+=1}"}
-          .ad-image-wrapper
+
 
       -else
         Please select an album on the left menu

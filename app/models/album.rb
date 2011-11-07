@@ -8,6 +8,7 @@ class Album
   attr_accessor :title
   attr_accessor :year
   attr_accessor :images
+  attr_accessor :description
 
   def self.all
     albums = Pathname.glob("#{@@datadir}/*/").collect { |path| [File.basename(path), Album.new(File.basename(path))] }
@@ -40,9 +41,12 @@ class Album
     end 
 
     self.images = Pathname.glob("#{@@datadir}/#{self.path}/*.jpg").collect { |path| Image.new("#{album_path}/#{File.basename(path)}", (self.metadata['photos'] rescue nil)) }
-
     self.title = metadata['title'] rescue File.basename("#{@@datadir}/#{self.path}")
-    self.year = metadata['year'] rescue ""
+
+    if metadata
+      self.year = metadata['year']
+      self.description = metadata['description']
+    end
 
   end
   
