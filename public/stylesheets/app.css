@@ -27,6 +27,10 @@ body {
     padding-left: 10px;
 }
 
+#albums .year{
+    cursor: pointer;
+}
+
 #copyright {
     font-size: 11px;
     float: right;

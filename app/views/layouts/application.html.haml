@@ -11,7 +11,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "RubyStand"
     = stylesheet_link_tag    'foundation', 'ie', 'jquery.ad-gallery', 'app'
-    = javascript_include_tag 'app', 'foundation', 'jquery.ad-gallery'
+    = javascript_include_tag 'foundation', 'jquery.ad-gallery', 'app'
     = csrf_meta_tags
   %body
     #header
@@ -29,7 +29,7 @@
               %p
                 &copy;
                 =link_to 'RubyStand', 'http://github.com/zepplock/rubystand', :target => :blank
-                gallery (1.1.2)
+                gallery (1.1.3)
                 %br
                 by
                 =link_to 'SlashZero LLC', 'http://slashzero.us', :target => :blank

@@ -26,8 +26,10 @@
       #albums
         %h3 Albums
         -@albums.keys.each do |year|
-          %p=year
-          %ul
+          %div.alert-box
+            .year{:id => year}
+              =year
+          %ul{:id => "album-#{year}", :style => "display:none"}
             =render(:partial => 'album', :collection => @albums[year])
     .nine.columns
       -if @album

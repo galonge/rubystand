@@ -29,7 +29,7 @@ class Album
       array.sort_by!{|album| album.title}
     end
 
-    Hash[albums_by_year.sort_by { |year, albums| year.to_s }]
+    Hash[albums_by_year.sort_by { |year, albums| year.to_s }.reverse!]
   end
 
   def self.find(name)
